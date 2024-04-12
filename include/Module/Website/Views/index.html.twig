@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  {% block meta %}
+  <title>Tecnofy - Solusi Teknologi Informasi Terdepan</title>
+  <meta
+    content="jasa web, buat website, website desain, jasa desain, jasa hosting, hosting, wordpress, applikasi android, aplikasi ios, android, ios, development, developer"
+    name="keywords">
+  <meta name="description"
+    content="Tecnofy adalah mitra terpercaya untuk solusi IT inovatif. Kami menyediakan layanan pengembangan perangkat lunak, keamanan IT, manajemen proyek, dan layanan pelanggan yang unggul. Hubungi kami untuk mengubah bisnis Anda dengan teknologi yang menginspirasi.">
+  <meta name="keywords"
+    content="Tecnofy, solusi IT, pengembangan perangkat lunak, keamanan IT, manajemen proyek, layanan pelanggan">
+  <meta name="author" content="Tecnofy">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Tecnofy - Solusi Teknologi Informasi Terdepan">
+  <meta property="og:description"
+    content="Tecnofy adalah mitra terpercaya untuk solusi IT inovatif. Kami menyediakan layanan pengembangan perangkat lunak, keamanan IT, manajemen proyek, dan layanan pelanggan yang unggul. Hubungi kami untuk mengubah bisnis Anda dengan teknologi yang menginspirasi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tecnofy.id">
+  <meta property="og:image" content="https://tecnofy.id/content/tecnofy-logo.jpg">
+  <meta property="og:site_name" content="Tecnofy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tecnofy - Solusi Teknologi Informasi Terdepan">
+  <meta name="twitter:description"
+    content="Tecnofy adalah mitra terpercaya untuk solusi IT inovatif. Kami menyediakan layanan pengembangan perangkat lunak, keamanan IT, manajemen proyek, dan layanan pelanggan yang unggul. Hubungi kami untuk mengubah bisnis Anda dengan teknologi yang menginspirasi.">
+  <meta name="twitter:image" content="https://tecnofy.id/content/tecnofy-logo.jpg">
+
+
+  {% endblock %}
+
+  <!-- Favicons -->
+  <link href="{{ '@website/img/favicon.png' | assets | url }}" rel="icon">
+  <link href="{{ '@website/img/apple-touch-icon.png' | assets | url }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ '@website/vendor/aos/aos.css' | assets | url }}" rel="stylesheet">
+  <link href="{{ '@website/vendor/bootstrap/css/bootstrap.min.css' | assets | url }}" rel="stylesheet">
+  <link href="{{ '@website/vendor/bootstrap-icons/bootstrap-icons.css' | assets | url }}" rel="stylesheet">
+  <link href="{{ '@website/vendor/glightbox/css/glightbox.min.css' | assets | url }}" rel="stylesheet">
+  <link href="{{ '@website/vendor/swiper/swiper-bundle.min.css' | assets | url }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ '@website/css/style.css' | assets | url }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include "@website/partials/navbar.html.twig" %}
+  <!-- #header -->
+
+  <!-- ======= Hero Section ======= -->
+  {% block hero %}
+  <section id="hero" class="clearfix">
+    <div class="container" data-aos="fade-up">
+
+      <div class="hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img loading="lazy" src="{{ '@website/img/hero-img.svg' | assets | url }}" alt="" class="img-fluid">
+      </div>
+
+      <div class="hero-info" data-aos="zoom-in" data-aos-delay="100">
+        <h2>What You Need<br><span style="color: rgb(255, 140, 0); text-decoration: none;">We make it</span></h2>
+        <div>
+          <a target="_blank" href="{{ api.Contact.wa(6281991848420, 'Hallo Tecnofy, saya ingin konsultasi.') }}"
+            class="btn-get-started scrollto">Get Started</a>
+          <a href="#services" class="btn-services scrollto">Our Services</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  {% endblock %}
+  <!-- End Hero Section -->
+
+  {% block content %}
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    {% block about %}
+    {% include "@website/partials/about.html.twig" %}
+    {% endblock %}
+    <!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    {% block services %}
+    {% include "@website/partials/services.html.twig" %}
+    {% endblock %}
+    <!-- End Services Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    {% block whyUs %}
+    {% include "@website/partials/why-us.html.twig" %}
+    {% endblock %}
+    <!-- End Why Us Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    {% block portfolio %}
+    {% include "@website/partials/portfolio.html.twig" %}
+    {% endblock %}
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    {% block testimonial %}
+    {% include "@website/partials/testimonials.html.twig" %}
+    {% endblock %}
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    {% block team %}
+    {% include "@website/partials/team.html.twig" %}
+    {% endblock %}
+    <!-- End Team Section -->
+
+    <!-- ======= Clients Section ======= -->
+    {% block clients %}
+    {% include "@website/partials/clients.html.twig" %}
+    {% endblock %}
+    <!-- End Clients Section -->
+
+    <!-- ======= Contact Section ======= -->
+    {% block contact %}
+    {% include "@website/partials/contact.html.twig" %}
+    {% endblock %}
+    <!-- End Contact Section -->
+
+  </main>
+  <!-- End #main -->
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  {% block footer %}
+  {% include "@website/partials/footer.html.twig" %}
+  {% endblock %}
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ '@website/vendor/purecounter/purecounter_vanilla.js' | assets | url }}"></script>
+  <script src="{{ '@website/vendor/aos/aos.js' | assets | url }}"></script>
+  <script src="{{ '@website/vendor/bootstrap/js/bootstrap.bundle.min.js' | assets | url }}"></script>
+  <script src="{{ '@website/vendor/glightbox/js/glightbox.min.js' | assets | url }}"></script>
+  <script src="{{ '@website/vendor/isotope-layout/isotope.pkgd.min.js' | assets | url }}"></script>
+  <script src="{{ '@website/vendor/swiper/swiper-bundle.min.js' | assets | url }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ '@website/js/main.js' | assets | url }}"></script>
+
+</body>
+
+</html>

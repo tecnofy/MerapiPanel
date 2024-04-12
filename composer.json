@@ -1,0 +1,28 @@
+{
+    "name": "il4mb/merapipanel",
+    "description": "Merapi panel package",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "twig/twig": "^3.7",
+        "symfony/translation": "^6.3",
+        "symfony/yaml": "^6.3",
+        "symfony/twig-pack": "^1.0",
+        "symfony/twig-bundle": "^6.3",
+        "monolog/monolog": "^3.5",
+        "php-console/php-console": "^3.1",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MerapiPanel\\": "include/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ilham b",
+            "email": "durianbohong@gmail.com"
+        }
+    ]
+}

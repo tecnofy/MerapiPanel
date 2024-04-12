@@ -1,0 +1,94 @@
+{% extends "@panel/base.html.twig" %}
+
+{% set FM = api.FileManager %}
+{% set parent = FM.getParent %}
+
+
+{% block stylesheet %}
+{{parent()}}
+<link rel="stylesheet" href="{{ '@FileManager/dist/filemanager.css' | assets }}">
+{% endblock %}
+
+{% set directory = request.directory %}
+
+
+
+{% block header_title %}File Manager{% endblock %}
+
+
+
+{% block breadcrumb_item %}
+{% set parent = "/" %}
+{% for i, item in FM.getArrayParent %}
+{% if i == 0 %}
+<li class="breadcrumb-item"><a href="?d={{ parent }}">ROOT</a></li>
+{% else %}
+{% set parent = parent ~ "/" ~ item %}
+<li class="breadcrumb-item"><a href="?d={{ parent }}">{{ item }}</a></li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+
+
+{% block subheader_outer %}
+{% if not FM.state_is_file %}
+{{parent()}}
+{% endif %}
+{% endblock %}
+
+
+{% block subheader_menu %}
+<li class="menu-item btn" onclick="createFolder('{{ directory }}')"><i class="fa-solid fa-folder-plus"></i> new folder</li>
+<li class="menu-item btn" onclick="uploadFile()"><i class="fa-solid fa-file-arrow-up"></i> upload file</li>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+{% if FM.state_is_file %}
+
+<div class="ratio ratio-16x9">
+    <object data="{{ FM.state_path }}" type="image/jpeg"></object>
+</div>
+
+{% else %}
+
+<ul class="list-group list-group-flush">
+
+    {% for item in FM.fetch %}
+
+    <li class="list-group-item" style="max-width: 800px;">
+        <a href="?d={{parent}}/{{ item | trim }}">
+            <div class="d-flex align-items-center">
+                {% if FM.is_file(item) %}
+                <i class="fa-regular fa-file"></i>
+                {% else %}
+                <i class="fa-regular fa-folder-closed"></i>
+                {% endif %}
+                <span class="ms-2">{{ item }}</span>
+            </div>
+        </a>
+    </li>
+
+    {% else %}
+
+
+    <li class="list-group-item">
+        <div class="d-flex align-items-center justify-content-center flex-column fs-4 w-100" style="min-height: 400px;">
+            <i class="fa-regular fa-folder-open fa-2x"></i>
+
+            <span class="mt-2">Directory is empty</span>
+        </div>
+    </li>
+
+
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}
